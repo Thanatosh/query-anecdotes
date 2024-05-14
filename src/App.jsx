@@ -1,7 +1,7 @@
 import AnecdoteForm from './components/AnecdoteForm'
 import Notification from './components/Notification'
 import { useQuery } from '@tanstack/react-query'
-import { getAnecdotes } from '../requests'
+import { getAnecdotes } from './requests'
 
 const App = () => {
 
@@ -11,6 +11,7 @@ const App = () => {
     retry: 1
   })
   console.log(JSON.parse(JSON.stringify(result)))
+  
   if ( result.isError ) {
     return <div>Anecdote service not available due to problems in server</div>
   }
