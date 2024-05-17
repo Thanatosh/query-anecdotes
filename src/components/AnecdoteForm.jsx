@@ -8,6 +8,9 @@ const AnecdoteForm = () => {
 
   const newAnecdoteMutation = useMutation({
     mutationFn: createAnecdote,
+    onError: () => {
+      showNotification('Anecdote too short, must be length of 5 or more', 5)
+    },
     onSuccess: () => {
       queryClient.invalidateQueries(['anecdotes'])
     },
